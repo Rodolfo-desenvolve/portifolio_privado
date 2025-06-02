@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privado</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>CADASTRO DE NOVOS CARDS</h2>
+            <hr>
+            <form id="project-form">
+                <label for="image_url">Imagem do Projeto:</label>
+                <input type="text" id="image_url" name="image_url" placeholder="Insira a URL da imagem" required>
+
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="description" placeholder="Descreva o projeto" required></textarea>
+
+                <label for="link">Link do Projeto:</label>
+                <input type="url" id="link" name="link" placeholder="Insira o link do projeto" required>
+
+                <button type="submit">Cadastrar Projeto</button>
+            </form>
+            <hr>
+        </div>
+        <div class="edit-cards">
+            <div class="portfolio-cards">
+                <h3>CARDS DO PORTFÓLIO</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Descrição</th>
+                            <th>Link</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/imagem/tela_food.png" alt="Landing Page" width="100"></td>
+                            <td><strong>Food - Landing Page</strong> 🍔 <br>
+
+                                Uma <strong>landing page</strong> moderna e <strong>responsiva</strong> desenvolvida com
+                                <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript
+                                    (ES6)</strong>. O projeto utiliza <strong>jQuery</strong> para <strong>manipulação
+                                    do DOM</strong> e <strong>ScrollReveal.js</strong> para
+                                efeitos de animação. Além disso, conta com <strong>Flexbox</strong> e <strong>Media
+                                    Queries</strong> para garantir
+                                uma experiência adaptável em diferentes dispositivos. 🚀
+                            </td>
+                            <td><a href="https://rodolfo-desenvolve.github.io/landing_page/" target="_blank">Ver
+                                    Projeto</a></td>
+                            <td>
+                                <div class="buttons">
+                                    <button class="edit">EDITAR</button>
+                                    <button class="delete">EXCLUIR</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <canvas id="animated-background"></canvas>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script src="assets/js/scripts.js"></script>
+</script>
+</html>

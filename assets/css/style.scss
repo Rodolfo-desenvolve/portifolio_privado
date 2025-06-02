@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Paleta de cores */
+:root {
+    --background-color: #121212;
+    /* Preto Profundo - fundo geral */
+    --secondary-background: #1F1F1F;
+    /* Cinza Grafite - seções secundárias */
+    --primary-color: #3B82F6;
+    /* Azul Elétrico - botões e elementos de destaque */
+    --text-color: #EAEAEA;
+    /* Branco Quebrado - texto principal */
+    --accent-color: #B91C1C;
+    /* Vermelho Bordô - detalhes e chamadas para ação */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'POPPINS', sans-serif;
+}
+
+.container {
+    max-width: 100vw;
+    height: auto;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+#animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+
+// animação de gradiente //
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// fim
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 100px;
+}
+
+.context {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-color);
+    text-align: center;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+span {
+    font-size: 0.625rem;
+    /* Equivale a 10px */
+    line-height: 1.5;
+    /* Melhora a legibilidade */
+    color: var(--text-color);
+}
+
+hr {
+    border: none;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+}
+
+.text {
+    width: 48%;
+    text-align: justify;
+
+    .about-me {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        padding: 10px 0px;
+
+        .text-about {
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+
+
+            p {
+                font-size: 0.625rem;
+                /* Equivale a 10px */
+                line-height: 1.5;
+                /* Melhora a legibilidade */
+                font-weight: 200;
+                color: #fff;
+                padding: 2px 15px;
+            }
+        }
+
+        .text-about.show {
+            opacity: 1;
+            margin-right: auto;
+        }
+
+        .text-about::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        .text-about::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            height: 10px;
+        }
+
+        .about,
+        .technologies,
+        .training {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            padding: 10px 20px;
+            border: 1px solid var(--primary-color);
+
+            .faq-toggle {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                padding: 5px;
+                color: var(--text-color);
+            }
+
+            .faq-content {
+                display: none;
+                margin-top: 10px;
+                font-size: 15px;
+                font-weight: 200;
+                color: #fff;
+                display: none;
+            }
+
+            h2 {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--text-color);
+                text-align: center;
+            }
+        }
+
+        .close {
+            display: none;
+        }
+    }
+}
+
+strong {
+    color: var(--primary-color);
+}
+
+
+.img-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 0;
+
+    .contacts {
+        display: flex;
+        width: 48%;
+        align-items: center;
+        gap: 20px;
+
+        .photo-perfil {
+            width: 10vw;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .links {
+            box-shadow: 1px 2px 3px 0px var(--primary-color);
+            border-radius: 5px;
+            transition: all 1s ease;
+
+            a {
+                display: flex;
+                color: var(--primary-color);
+                padding: 5px;
+                align-items: center;
+                text-decoration: none;
+                font-size: 0.625rem;
+                /* Equivale a 10px */
+                line-height: 1.5;
+                /* Melhora a legibilidade */
+
+            }
+
+            .icon {
+                font-size: 1.4rem;
+                color: var(--primary-color);
+            }
+
+        }
+
+        .links:hover {
+            transition: all 1s ease;
+            box-shadow: 1px 2px 3px 0px var(--accent-color);
+        }
+
+    }
+
+    .element-scroll {
+        width: 48%;
+        align-items: center;
+        overflow: hidden;
+
+        .scrolling {
+            padding: 10px;
+
+            .icons-scrolling {
+                display: flex;
+                flex-direction: row;
+                gap: 15px;
+                width: max-content;
+                align-items: center;
+                animation: scrollinfinite 5s linear infinite;
+
+                .itens {
+                    display: flex;
+                    padding: 4px;
+                    box-shadow: 1px 2px 3px 0px var(--primary-color);
+                    align-items: center;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        @keyframes scrollinfinite {
+            to {
+                translate: calc((-50% - 10px))
+            }
+        }
+    }
+}
+
+.projects {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide {
+    position: relative;
+
+    .slider {
+        overflow: hidden;
+        width: 200px;
+        border-radius: 5px;
+        scroll-behavior: smooth;
+
+        .element-context {
+            display: flex;
+            width: fit-content;
+        }
+
+        button {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            color: var(--primary-color);
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            transition: all 1s;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        button:first-of-type {
+            left: 0;
+            transform: translate(-90%, -70%);
+        }
+
+        button:last-of-type {
+            right: 0;
+            transform: translate(90%, -70%);
+        }
+
+        .length-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(50%, 100%);
+            display: flex;
+            gap: 10px;
+
+            .dot {
+                display: inline-block;
+                background-color: var(--text-color);
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+            }
+
+            .dot.current {
+                background-color: var(--primary-color);
+            }
+        }
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 220px;
+    background-color: var(--secondary-background);
+    color: var(--text-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+
+    p {
+        font-size: 0.625rem;
+        /* Equivale a 10px */
+        line-height: 1.5;
+        /* Melhora a legibilidade */
+        padding: 10px;
+        height: 85px;
+        overflow: hidden;
+        overflow-y: scroll;
+        text-align: justify;
+        margin-bottom: 10px;
+    }
+
+    p::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    p::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 2px;
+        height: 10px;
+    }
+
+    a {
+        font-size: 0.625rem;
+        /* Equivale a 10px */
+        line-height: 1.5;
+        /* Melhora a legibilidade */
+        text-decoration: none;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 10px 0;
+        transition: all 2s ease-in-out;
+        text-align: center;
+
+    }
+
+    a:hover {
+        transition: all 2s ease-in-out;
+        background-color: transparent;
+    }
+
+    i {
+        color: var(--accent-color);
+    }
+
+    img {
+        height: 90px;
+        border-radius: 10px;
+        object-fit: contain;
+        padding: 5px;
+    }
+}
+
+// estilizando o formulario de cards //
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 150px;
+    gap: 10px;
+
+    label {
+        font-size: 0.7rem;
+        /* Equivale a 10px */
+        line-height: 1.5;
+        /* Melhora a legibilidade */
+        color: var(--text-color);
+    }
+
+    input {
+        padding: 10px;
+        outline: none;
+        border: 2px solid var(--primary-color);
+        color: var(--text-color);
+        background-color: var(--secondary-background);
+        border-radius: 10px;
+    }
+
+    textarea {
+        height: 100px;
+        padding: 10px;
+        outline: none;
+        border: 2px solid var(--primary-color);
+        color: var(--text-color);
+        background-color: var(--secondary-background);
+        border-radius: 10px;
+    }
+
+    button {
+        padding: 10px;
+        align-items: center;
+        margin: 10px 0;
+        background-color: var(--accent-color);
+        border: none;
+        color: var(--text-color);
+        border-radius: 10px;
+    }
+}
+
+div.edit-cards {
+    background-color: var(--background-color);
+    color: #fff;
+    text-align: center;
+
+    .portfolio-cards {
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid var(--primary-color);
+        padding: 10px;
+        font-size: 0.625rem;
+        /* Equivale a 10px */
+        line-height: 1.5;
+        /* Melhora a legibilidade */
+    }
+
+    .buttons button {
+        padding: 10px;
+        font-size: 0.625rem;
+        /* Equivale a 10px */
+        line-height: 1.5;
+        /* Melhora a legibilidade */
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .edit {
+        background-color: #555;
+        color: #fff;
+    }
+
+    .delete {
+        background-color: #ff0000;
+        color: #fff;
+    }
+
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+}
+
+// fazer uma regra para max-width de 854px
+
+@media (max-width: 854px) {
+
+    .text {
+        width: 80%;
+    }
+
+    .img-icons {
+        flex-direction: column;
+
+        .contacts {
+            width: 100%;
+        }
+
+        .element-scroll {
+            width: 100%;
+        }
+    }
+
+    .context {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 533px) {
+    .content {
+        padding: 50px 50px;
+    }
+
+    .text {
+        width: 100%;
+
+        .about-me {
+
+            .about,
+            .technologies,
+            .training {
+
+                h2 {
+                    font-size: 0.8rem;
+                }
+
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .img-icons {
+        flex-direction: column;
+
+        .contacts {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .element-scroll {
+            width: 100%;
+        }
+    }
+
+    .context {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text {
+
+        .about-me {
+
+            .about,
+            .technologies,
+            .training {
+                max-width: 100%;
+            }
+        }
+    }
+}

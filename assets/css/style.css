@@ -1,0 +1,517 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Paleta de cores */
+:root {
+  --background-color: #121212;
+  /* Preto Profundo - fundo geral */
+  --secondary-background: #1F1F1F;
+  /* Cinza Grafite - seções secundárias */
+  --primary-color: #3B82F6;
+  /* Azul Elétrico - botões e elementos de destaque */
+  --text-color: #EAEAEA;
+  /* Branco Quebrado - texto principal */
+  --accent-color: #B91C1C;
+  /* Vermelho Bordô - detalhes e chamadas para ação */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "POPPINS", sans-serif;
+}
+
+.container {
+  max-width: 100vw;
+  height: auto;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+#animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 100px;
+}
+
+.context {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-color);
+  text-align: center;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 5px;
+  white-space: nowrap;
+}
+
+span {
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  color: var(--text-color);
+}
+
+hr {
+  border: none;
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-color);
+}
+
+.text {
+  width: 48%;
+  text-align: justify;
+}
+.text .about-me {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  padding: 10px 0px;
+}
+.text .about-me .text-about {
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+.text .about-me .text-about p {
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  font-weight: 200;
+  color: #fff;
+  padding: 2px 15px;
+}
+.text .about-me .text-about.show {
+  opacity: 1;
+  margin-right: auto;
+}
+.text .about-me .text-about::-webkit-scrollbar {
+  width: 2px;
+}
+.text .about-me .text-about::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  height: 10px;
+}
+.text .about-me .about,
+.text .about-me .technologies,
+.text .about-me .training {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+}
+.text .about-me .about .faq-toggle,
+.text .about-me .technologies .faq-toggle,
+.text .about-me .training .faq-toggle {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+  color: var(--text-color);
+}
+.text .about-me .about .faq-content,
+.text .about-me .technologies .faq-content,
+.text .about-me .training .faq-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 200;
+  color: #fff;
+  display: none;
+}
+.text .about-me .about h2,
+.text .about-me .technologies h2,
+.text .about-me .training h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center;
+}
+.text .about-me .close {
+  display: none;
+}
+
+strong {
+  color: var(--primary-color);
+}
+
+.img-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 0;
+}
+.img-icons .contacts {
+  display: flex;
+  width: 48%;
+  align-items: center;
+  gap: 20px;
+}
+.img-icons .contacts .photo-perfil {
+  width: 10vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+.img-icons .contacts .links {
+  box-shadow: 1px 2px 3px 0px var(--primary-color);
+  border-radius: 5px;
+  transition: all 1s ease;
+}
+.img-icons .contacts .links a {
+  display: flex;
+  color: var(--primary-color);
+  padding: 5px;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+}
+.img-icons .contacts .links .icon {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+.img-icons .contacts .links:hover {
+  transition: all 1s ease;
+  box-shadow: 1px 2px 3px 0px var(--accent-color);
+}
+.img-icons .element-scroll {
+  width: 48%;
+  align-items: center;
+  overflow: hidden;
+}
+.img-icons .element-scroll .scrolling {
+  padding: 10px;
+}
+.img-icons .element-scroll .scrolling .icons-scrolling {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: -moz-max-content;
+  width: max-content;
+  align-items: center;
+  animation: scrollinfinite 5s linear infinite;
+}
+.img-icons .element-scroll .scrolling .icons-scrolling .itens {
+  display: flex;
+  padding: 4px;
+  box-shadow: 1px 2px 3px 0px var(--primary-color);
+  align-items: center;
+  border-radius: 5px;
+}
+@keyframes scrollinfinite {
+  to {
+    translate: calc(-50% - 10px);
+  }
+}
+
+.projects {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide {
+  position: relative;
+}
+.slide .slider {
+  overflow: hidden;
+  width: 200px;
+  border-radius: 5px;
+  scroll-behavior: smooth;
+}
+.slide .slider .element-context {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.slide .slider button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transition: all 1s;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.slide .slider button:first-of-type {
+  left: 0;
+  transform: translate(-90%, -70%);
+}
+.slide .slider button:last-of-type {
+  right: 0;
+  transform: translate(90%, -70%);
+}
+.slide .slider .length-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(50%, 100%);
+  display: flex;
+  gap: 10px;
+}
+.slide .slider .length-dots .dot {
+  display: inline-block;
+  background-color: var(--text-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.slide .slider .length-dots .dot.current {
+  background-color: var(--primary-color);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 220px;
+  background-color: var(--secondary-background);
+  color: var(--text-color);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.card p {
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  padding: 10px;
+  height: 85px;
+  overflow: hidden;
+  overflow-y: scroll;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+.card p::-webkit-scrollbar {
+  width: 2px;
+}
+.card p::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  height: 10px;
+}
+.card a {
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 0;
+  transition: all 2s ease-in-out;
+  text-align: center;
+}
+.card a:hover {
+  transition: all 2s ease-in-out;
+  background-color: transparent;
+}
+.card i {
+  color: var(--accent-color);
+}
+.card img {
+  height: 90px;
+  border-radius: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 150px;
+  gap: 10px;
+}
+form label {
+  font-size: 0.7rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  color: var(--text-color);
+}
+form input {
+  padding: 10px;
+  outline: none;
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  background-color: var(--secondary-background);
+  border-radius: 10px;
+}
+form textarea {
+  height: 100px;
+  padding: 10px;
+  outline: none;
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  background-color: var(--secondary-background);
+  border-radius: 10px;
+}
+form button {
+  padding: 10px;
+  align-items: center;
+  margin: 10px 0;
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--text-color);
+  border-radius: 10px;
+}
+
+div.edit-cards {
+  background-color: var(--background-color);
+  color: #fff;
+  text-align: center;
+}
+div.edit-cards .portfolio-cards {
+  padding: 10px;
+  margin-top: 20px;
+}
+div.edit-cards table {
+  width: 100%;
+  border-collapse: collapse;
+}
+div.edit-cards th,
+div.edit-cards td {
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+}
+div.edit-cards .buttons button {
+  padding: 10px;
+  font-size: 0.625rem;
+  /* Equivale a 10px */
+  line-height: 1.5;
+  /* Melhora a legibilidade */
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+div.edit-cards .edit {
+  background-color: #555;
+  color: #fff;
+}
+div.edit-cards .delete {
+  background-color: #ff0000;
+  color: #fff;
+}
+div.edit-cards .formulario input,
+div.edit-cards .formulario textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+@media (max-width: 854px) {
+  .text {
+    width: 80%;
+  }
+  .img-icons {
+    flex-direction: column;
+  }
+  .img-icons .contacts {
+    width: 100%;
+  }
+  .img-icons .element-scroll {
+    width: 100%;
+  }
+  .context {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 533px) {
+  .content {
+    padding: 50px 50px;
+  }
+  .text {
+    width: 100%;
+  }
+  .text .about-me .about h2,
+  .text .about-me .technologies h2,
+  .text .about-me .training h2 {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 425px) {
+  .img-icons {
+    flex-direction: column;
+  }
+  .img-icons .contacts {
+    width: 100%;
+    flex-direction: column;
+  }
+  .img-icons .element-scroll {
+    width: 100%;
+  }
+  .context {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text .about-me .about,
+  .text .about-me .technologies,
+  .text .about-me .training {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
